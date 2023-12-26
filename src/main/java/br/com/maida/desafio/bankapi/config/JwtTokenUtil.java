@@ -47,19 +47,16 @@ public class JwtTokenUtil {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
     }
 
-//    Verifica se o token está expirado
     private Boolean isTokenExpired(String token) {
         final Date expiration = getExpirationDateFromToken(token);
         return expiration.before(new Date());
     }
 
-//    Gera o token para o usuário
     public String generateToken(String emailAuth) {
         Map<String, Object> claims = new HashMap<>();
         return doGenerateToken(claims, emailAuth);
     }
 
-//    Inicializa o token e define seu tempo de expiração
     private String doGenerateToken(Map<String, Object> claims, String subject) {
         return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + JWT_VALIDITY * 1000))

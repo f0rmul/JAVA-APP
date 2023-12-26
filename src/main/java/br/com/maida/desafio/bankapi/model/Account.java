@@ -10,10 +10,7 @@ import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-/**
- *
- * @author Gabriel Duarte
- */
+
 public class Account {
     
     @NotNull(message = "Campo number ausente.")

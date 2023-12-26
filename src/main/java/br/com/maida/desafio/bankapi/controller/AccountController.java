@@ -53,7 +53,8 @@ public class AccountController {
         if (accountService.validateNumberExists(jsonAccountString.getNumber())) {
             return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).headers(httpHeaders).body(
                     new JSONObject()
-                            .put("error", "Аккаунт с указанным номером уже существует")
+                            .put("error", "
+                             с указанным номером уже существует")
                             .toString());
         }
 
